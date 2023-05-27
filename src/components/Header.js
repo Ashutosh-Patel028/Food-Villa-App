@@ -19,7 +19,9 @@ const Header = function() {
                     <Link to="/about">
                     <li>About</li>
                     </Link>
+                    <Link to="/contact">
                     <li>Contact</li>
+                    </Link>
                     <li>Cart</li>
                     {
                         isLoggedInUser ? <button onClick={ ()=>{setIsLoggedInUser(false);}}>Logout</button> : <button onClick={ ()=>{setIsLoggedInUser(true);}}>Login</button>
