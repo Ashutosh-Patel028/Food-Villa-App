@@ -2,7 +2,7 @@
 function ShimmerUI (){
     return (
         <div className="restraunt-list">
-            {Array(15).fill().map(e=><div className="shimmer-card"></div>)}
+            {Array(15).fill().map((e,index)=><div className="shimmer-card" key={index}></div>)}
             
         </div>
     );
