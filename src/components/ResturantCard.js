@@ -2,12 +2,13 @@ import {IMG_CDN_URL} from '../config'
 
 const RestaurantCard = (props) =>{
     const {name,cloudinaryImageId,cuisines,avgRating}=props;
+    // console.log("props = "+props.cloudinaryImageId);
     // console.log(name,cloudinaryImageId,cuisines);
     return (
         <div className="card">
             <img src={IMG_CDN_URL+cloudinaryImageId} alt="restaurantImg"/>
             <h2>{name}</h2>
-            <h3>{cuisines.join(', ')}</h3>
+            <h3>{cuisines?.join(', ')}</h3>
             <h4>{avgRating} stars</h4>
         </div>
     )

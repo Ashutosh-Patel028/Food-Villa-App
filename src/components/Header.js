@@ -13,15 +13,9 @@ const Header = function() {
             <Title/>
             <div className="nav-items">
                 <ul>
-                    <Link to="/">
-                    <li>Home</li>
-                    </Link>
-                    <Link to="/about">
-                    <li>About</li>
-                    </Link>
-                    <Link to="/contact">
-                    <li>Contact</li>
-                    </Link>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>                    
                     <li>Cart</li>
                     {
                         isLoggedInUser ? <button onClick={ ()=>{setIsLoggedInUser(false);}}>Logout</button> : <button onClick={ ()=>{setIsLoggedInUser(true);}}>Login</button>
