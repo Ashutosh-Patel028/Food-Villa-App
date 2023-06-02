@@ -57,4 +57,11 @@
 
 a{
     text-decoration: none;
+    color:black;
+}
+
+.footer{
+    text-align: center;
+    padding:2px;
+    margin: 10px;
 }
