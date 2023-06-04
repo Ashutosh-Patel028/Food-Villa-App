@@ -37,17 +37,17 @@ const Body = () =>{
 
     // console.log("render-1");
     return allRestaurants?.length===0 ? <ShimmerUI/> : (
-        <>
-            <div className="search-container">
-                <input type="text" className="search-input" placeholder="search" value={searchText}
+        <div className>
+            <div className="m-2 p-2 text-center">
+                <input type="text" className="border-r-0 w-80 h-30 focus:caret-pink-500  text-md rounded-md rounded-e-none border border-solid border-gray-600 p-1" placeholder="search" value={searchText}
                 onChange={(e)=>{setSearchText(e.target.value)}}
                 />
-                <button className="search-btn" onClick={()=>{
+                <button className="border-l-0 border border-gray-600 h-30 bg-orange-300 hover:bg-orange-400 rounded-l-none rounded-md p-1 w-20 font-bold text-neutral-600" onClick={()=>{
                     const data=filterData(searchText,allRestaurants);
                     setFilteredRestaurants(data);
                 }}>Search</button>
             </div>
-            <div className="restraunt-list">
+            <div className="flex flex-wrap">
                 {
                     (filteredRestaurants?.length===0)
                     ?
@@ -63,7 +63,7 @@ const Body = () =>{
                     })
                 }
             </div>
-        </>
+        </div>
     )
 };
 

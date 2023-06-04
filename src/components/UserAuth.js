@@ -5,7 +5,7 @@ const UserAuth = () =>{
     const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     return(
-        <div>
+        <div className="py-10 px-2">
             {
                 !isAuthenticated ? <button onClick={() => loginWithRedirect()}>Login</button>
                 : <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>
