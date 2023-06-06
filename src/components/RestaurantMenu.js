@@ -4,23 +4,66 @@ import ShimmerUI from "./ShimmerUI";
 import { IMG_CDN_URL } from "../config";
 import useRestaurant from "../utils/useRestaurant";
 
+//https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.9158979&lng=70.3628516&restaurantId=675356&submitAction=ENTER
+
+
 const RestaurantMenu = () =>{
 
     const params= useParams();
     const restaurantData = useRestaurant(params.id);
-    // console.log(restaurantData);
+    const [ratingClass,setRatingClass] = useState('rounded-md m-1 p-1 text-white font-bold inline text-sm h-8 w-10');
+    const avgRating = (restaurantData?.avgRating)==undefined?"NA":restaurantData?.avgRating;
+    const ListAPI=`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.9158979&lng=70.3628516&restaurantId=${params.id}&submitAction=ENTER`
+    useEffect(()=>{
+        var color = "bg-red-600";
+        if(avgRating>=4){
+            color = "bg-green-600";
+        }else if(avgRating>=3){
+            color = "bg-orange-400";
+        }else if(avgRating>=2){
+            color = "bg-yellow-800";
+        }else if(avgRating>=1){
+            color = "bg-red-600";
+        }else{
+            color = "bg-gray-600";
+        }
+        setRatingClass(color+" "+ratingClass);
+        fetch(ListAPI).then(res=>res.json()).then(data=>console.log(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards));
+    }
+    ,[]);
+    // console.log(restaurantData); 
     
     if(restaurantData===undefined || restaurantData.length===0) return <ShimmerUI/>;    
     return (
-        <div>
-            <h1>{restaurantData?.name}</h1>
-            <img src={IMG_CDN_URL+restaurantData.cloudinaryImageId}></img>
-            <h3>{"costForTwo: "+restaurantData?.costForTwo/100}&#x20B9;</h3>
-            <h3>Cuisines: 
-            {restaurantData.cuisines.map(item=><span>{" "+item +","}</span>)}
-            </h3>
-            <h3>{"Location: "+restaurantData?.locality}</h3>
-            <h3>{"City: "+restaurantData?.city}</h3>
+        <div className="flex justify-center">
+            <div className="container w-1/2 px-12 ">
+                <div className="flex justify-between  py-2 px-2">
+                    <div>
+                        <h1 className="font-semibold font-serif text-3xl">
+                            {restaurantData?.name}
+                            <span className={ratingClass}>
+                            <i class="far fa-solid fa-star font-light"></i>
+                                {" "+avgRating}
+                            </span>
+                        </h1>
+                        <h3>{restaurantData.cuisines.map(item=><span>{" "+item +","}</span>)}</h3>
+                        <h3><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;{restaurantData?.locality}</h3>
+                        <h3><i class="fa-solid fa-person-biking"></i>&nbsp;&nbsp;{restaurantData?.sla?.lastMileTravelString}</h3>
+                        <h3>
+                            <i class="fa-solid fa-coins"></i>
+                            &nbsp;&nbsp;{restaurantData?.costForTwoMessage}
+                        </h3>
+                        <h3>
+                            <i class="fa-regular fa-hourglass-half"></i>
+                            &nbsp;&nbsp;{restaurantData?.sla?.slaString}
+                        </h3>
+                    </div>
+                    <img className="w-60 rounded-md" src={IMG_CDN_URL+restaurantData.cloudinaryImageId}></img>
+                </div>
+                <hr></hr>
+                <div>
+                </div>
+            </div>
         </div>
     );
 };

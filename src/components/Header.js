@@ -11,7 +11,9 @@ const Header = function() {
                     <li className='px-3 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/">Home</Link></li>
                     <li className='px-3 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/about">About</Link></li>
                     <li className='px-3 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/contact">Contact</Link></li>                    
-                    <li className='px-3 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'>Cart</li>
+                    <li className='px-3 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    </li>
                 </ul>
             </div>
             <UserAuth/>

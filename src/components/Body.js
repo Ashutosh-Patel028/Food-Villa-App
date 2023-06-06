@@ -67,7 +67,7 @@ const Body = () =>{
                         // console.log(restraunt.data);
                         return (
                             <Link to={"/restaurant/"+restraunt.data.id} key={restraunt.data.id} >
-                            <RestaurantCard {...restraunt.data}/>
+                                <RestaurantCard {...restraunt.data}/>
                             </Link>
                         )
                     })
