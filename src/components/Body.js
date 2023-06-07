@@ -22,13 +22,14 @@ const Body = () =>{
     },[]);
 
     async function getRestraunt(){
-        fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.9205207&lng=70.3777302&page_type=DESKTOP_WEB_LISTING')
+        fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.9158979&lng=70.3628516&page_type=DESKTOP_WEB_LISTING')
         .then((data)=>data.json())
         .then((jsonData)=>{
-            console.log(jsonData);
-            // console.log(jsonData?.data?.cards[0]?.data?.data?.cards);
+            // console.log(jsonData);
+            // console.log(jsonData?.data?.cards[2]?.data?.data?.cards);
             setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
             setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+            // console.log(filteredRestaurants)
         })
         .catch((err)=>{
             console.log(err);
@@ -49,19 +50,19 @@ const Body = () =>{
     return allRestaurants?.length===0 ? <ShimmerUI/> : (
         <div className>
             <div className="m-2 p-2 text-center">
-                <input type="text" className="border-r-0 w-80 h-30 focus:caret-pink-500  text-md rounded-md rounded-e-none border border-solid border-gray-600 p-1" placeholder="search" value={searchText}
-                onChange={(e)=>{setSearchText(e.target.value)}}
+                <input type="text" className="border-r-0 w-80 h-30 focus:caret-pink-500  text-md rounded-md rounded-e-none border border-solid border-gray-600 p-1" placeholder="Type to search a restaurant" value={searchText}
+                    onChange={(e)=>{setSearchText(e.target.value)}}
                 />
-                <button className="border-l-0 border border-gray-600 h-30 bg-orange-300 hover:bg-orange-400 rounded-l-none rounded-md p-1 w-20 font-bold text-neutral-600" onClick={()=>{
+                <button className="border-l-0 border border-gray-600 h-30 bg-orange-300 hover:text-white hover:bg-orange-4  00 rounded-l-none rounded-md p-1 w-20 font-bold text-neutral-600" onClick={()=>{
                     const data=filterData(searchText,allRestaurants);
                     setFilteredRestaurants(data);
                 }}>Search</button>
             </div>
             <div className="flex flex-wrap">
                 {
-                    (filteredRestaurants?.length===0)
+                    (filteredRestaurants?.length===0 || filteredRestaurants===undefined)
                     ?
-                        <h1>No Restaurants Found!!</h1>
+                    <h1>No Restaurants Found!!</h1>
                     :
                     filteredRestaurants.map((restraunt)=>{
                         // console.log(restraunt.data);

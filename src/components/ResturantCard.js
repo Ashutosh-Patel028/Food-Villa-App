@@ -4,7 +4,7 @@ import {useState,useEffect} from "react";
 const RestaurantCard = (props) =>{
     const {name,cloudinaryImageId,cuisines,avgRating,lastMileTravel,costForTwoString}=props;
     const [ratingClass,setRatingClass] = useState('w-15 rounded-md m-1 p-1 text-white font-bold inline text-sm');
-    console.log(props);
+    // console.log(props);
     var color = "bg-red-600";
     useEffect(()=>{
         if(avgRating>=4){
