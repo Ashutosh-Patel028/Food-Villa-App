@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import restaurantList from "../config";
+import {restaurantList} from "../config.js";
 import RestaurantCard from "./ResturantCard";
 import ShimmerUI  from "./ShimmerUI"; 
 import {Link} from "react-router-dom";
