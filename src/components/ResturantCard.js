@@ -28,7 +28,7 @@ const RestaurantCard = (props) =>{
             <h5 className='font-sans font-light text-s px-1'>{cuisines?.join(', ')}</h5>
             <span className='flex text-center'>
             <h4 className={ratingClass}>
-            <i class="far fa-solid fa-star font-light"></i>
+            <i className="far fa-solid fa-star font-light"></i>
                 {" "+avgRating}
             </h4>
             <h4 className="p-2 font-sans font-medium text-sm flex">{lastMileTravel?.toFixed(2)} kms</h4>

@@ -12,7 +12,6 @@ function filterData(searchText,Restaurants){
     });
 }
 
-
 const Body = () =>{
     const [searchText,setSearchText] = useState('');
     const [filteredRestaurants,setFilteredRestaurants] = useState([]);
@@ -48,7 +47,7 @@ const Body = () =>{
 
     // console.log("render-1");
     return allRestaurants?.length===0 ? <ShimmerUI/> : (
-        <div className>
+        <div className="">
             <div className="m-2 p-2 text-center">
                 <input type="text" className="border-r-0 w-80 h-30 focus:caret-pink-500  text-md rounded-md rounded-e-none border border-solid border-gray-600 p-1" placeholder="Type to search a restaurant" value={searchText}
                     onChange={(e)=>{setSearchText(e.target.value)}}

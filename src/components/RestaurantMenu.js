@@ -51,19 +51,19 @@ const RestaurantMenu = () =>{
                         <h1 className="font-semibold font-serif text-3xl">
                             {restaurantData?.name}
                             <span className={ratingClass}>
-                            <i class="far fa-solid fa-star font-light"></i>
+                            <i className="far fa-solid fa-star font-light"></i>
                                 {" "+avgRating}
                             </span>
                         </h1>
                         <h3>{restaurantData.cuisines.map(item=><span>{" "+item +","}</span>)}</h3>
-                        <h3><i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;{restaurantData?.locality}</h3>
-                        <h3><i class="fa-solid fa-person-biking"></i>&nbsp;&nbsp;{restaurantData?.sla?.lastMileTravelString}</h3>
+                        <h3><i className="fa-solid fa-location-dot"></i>&nbsp;&nbsp;{restaurantData?.locality}</h3>
+                        <h3><i className="fa-solid fa-person-biking"></i>&nbsp;&nbsp;{restaurantData?.sla?.lastMileTravelString}</h3>
                         <h3>
-                            <i class="fa-solid fa-coins"></i>
+                            <i className="fa-solid fa-coins"></i>
                             &nbsp;&nbsp;{restaurantData?.costForTwoMessage}
                         </h3>
                         <h3>
-                            <i class="fa-regular fa-hourglass-half"></i>
+                            <i className="fa-regular fa-hourglass-half"></i>
                             &nbsp;&nbsp;{restaurantData?.sla?.slaString}
                         </h3>
                     </div>

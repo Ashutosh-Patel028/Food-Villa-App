@@ -12,7 +12,8 @@ import Signup from "./components/Signup";
 import Profile from "./components/Profile";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { Provider } from "react-redux";
-import {store} from "./utils/store";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const AppLayout = () =>{
     return (
@@ -57,6 +58,10 @@ const appRouter = createBrowserRouter([
             {
                 path : '/contact',
                 element : <Contact/>,
+            },
+            {
+                path: '/cart',
+                element: <Cart/>
             },
             {
                 path: '/restaurant/:id',

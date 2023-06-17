@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import {IMG_CDN_URL} from "../config";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 const MenuCard = (props) =>{
+
     const {name} = props.item;
-    // console.log(props.item);
-    // console.log(imageID);
+    const dispatch = useDispatch();
+    
+    const cartVal= [props.item.name,props.item.price]
+    const handleAddItem = () => {
+        dispatch(addItem(cartVal));   
+    }
+    
     return (
         <>
         <div className="flex w-1/1 h-52  m-2 p-2 justify-between">
@@ -13,6 +21,9 @@ const MenuCard = (props) =>{
                 {props.item?.description!=undefined?<span className="text-sm text-gray-400">{props.item?.description}</span>:<></>}
             </div>
             {props.item?.imageId!=undefined?<img className="w-40 h-40 rounded-md ml-32" src={IMG_CDN_URL+props.item?.imageId}></img>:<></>}
+            <div>
+                <button className="bg-orange-400 rounded-lg p-2 font-medium" onClick={()=>handleAddItem()}>Add Item</button>
+            </div>
         </div>
         <hr/>
         </>
