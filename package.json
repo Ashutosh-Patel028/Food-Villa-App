@@ -1,8 +1,8 @@
 {
-  "name": "namaste-react",
+  "name": "Food-Villa-App",
   "version": "1.0.0",
-  "description": "namaster react practise mode",
-  "main": "App.js",
+  "description": "namaste react course - restaurant App",
+
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
