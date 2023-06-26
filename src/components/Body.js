@@ -25,9 +25,9 @@ const Body = () =>{
         .then((data)=>data.json())
         .then((jsonData)=>{
             // console.log(jsonData);
-            // console.log(jsonData?.data?.cards[2]?.data?.data?.cards);
-            setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
-            setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+            // console.log(jsonData?.data?.cards[0]?.data?.data?.cards);
+            setAllRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
+            setFilteredRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
             // console.log(filteredRestaurants)
         })
         .catch((err)=>{
@@ -47,7 +47,7 @@ const Body = () =>{
 
     // console.log("render-1");
     return allRestaurants?.length===0 ? <ShimmerUI/> : (
-        <div className="">
+        <div>
             <div className="m-2 p-2 text-center">
                 <input type="text" className="border-r-0 w-80 h-30 focus:caret-pink-500  text-md rounded-md rounded-e-none border border-solid border-gray-600 p-1" placeholder="Type to search a restaurant" value={searchText}
                     onChange={(e)=>{setSearchText(e.target.value)}}
@@ -57,11 +57,11 @@ const Body = () =>{
                     setFilteredRestaurants(data);
                 }}>Search</button>
             </div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-center">
                 {
                     (filteredRestaurants?.length===0 || filteredRestaurants===undefined)
                     ?
-                    <h1>No Restaurants Found!!</h1>
+                    <h1 className="my-5 text-lg font-bold">No Restaurants Found!!</h1>
                     :
                     filteredRestaurants.map((restraunt)=>{
                         // console.log(restraunt.data);

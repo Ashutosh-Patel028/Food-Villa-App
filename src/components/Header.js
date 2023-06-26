@@ -5,7 +5,6 @@ import  {useSelector}  from 'react-redux';
 
 const Header = function() {
     const cartItems= useSelector(store => store.cart.items);
-    console.log(cartItems);
     return (
         <div className="flex justify-between bg-white shadow-xl sticky top-0">
             <Title/>
