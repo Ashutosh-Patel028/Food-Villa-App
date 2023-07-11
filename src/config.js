@@ -1,3 +1,5 @@
+
+//This is hardcoded list of buffered restaurants
 export const restaurantList=[
     {
               "type": "restaurant",

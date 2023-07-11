@@ -6,7 +6,8 @@ import {Link} from "react-router-dom";
 import useOnline from "../utils/useOnline";
 
 function filterData(searchText,Restaurants){
-    if(searchText==='') return restaurantList;
+    // if(searchText==='') return restaurantList;
+    if(searchText==='') return Restaurants;
     return Restaurants.filter((restraunt)=>{
         return restraunt?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase());
     });
@@ -25,13 +26,13 @@ const Body = () =>{
         .then((data)=>data.json())
         .then((jsonData)=>{
             // console.log(jsonData);
-            // console.log(jsonData?.data?.cards[0]?.data?.data?.cards);
-            setAllRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
-            setFilteredRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
+            // console.log(jsonData?.data?.cards[2]?.data?.data?.cards);
+            setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+            setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
             // console.log(filteredRestaurants)
         })
         .catch((err)=>{
-            console.log(err);
+            console.log("Error while Fetching from API: "+err);
         });
         // const jsonData = await data.json();
         // // console.log(jsonData);
