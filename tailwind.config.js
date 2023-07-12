@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{html,js,jsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        lobster:['Lobster'],
+        rubik:['Rubik Dirt']
+      }
+    },
   },
   plugins: [],
 }
