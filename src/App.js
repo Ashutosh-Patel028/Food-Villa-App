@@ -26,11 +26,11 @@ const AppLayout = () =>{
 }
 
 // const Auth0ProviderLayout = () => (
-//     <Auth0Provider domain="dev-sxrzpuy3bxt2iqxl.us.auth0.com"
-//     clientId="rhF1eCp8k8oAaDwsftzczJBRQh0DKNXw"
-//     authorizationParams={{
-//       redirect_uri: window.location.origin
-//     }}>
+    <Auth0Provider domain="dev-sxrzpuy3bxt2iqxl.us.auth0.com"
+    clientId="rhF1eCp8k8oAaDwsftzczJBRQh0DKNXw"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}>
 //       <Outlet />
 //     </Auth0Provider>
 // );
@@ -82,5 +82,11 @@ const appRouter = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
+    <Auth0Provider domain="dev-sxrzpuy3bxt2iqxl.us.auth0.com"
+    clientId="rhF1eCp8k8oAaDwsftzczJBRQh0DKNXw"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}>
     <RouterProvider router={appRouter}/>
+    </Auth0Provider>
 );
