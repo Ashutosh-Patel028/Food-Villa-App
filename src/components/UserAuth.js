@@ -5,13 +5,13 @@ const UserAuth = () =>{
     const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     return(
-        <div className="py-10 px-2 border-2 w-72">
+        <div className="py-8 px-2">
             {
-                !isAuthenticated ? <button onClick={() => loginWithRedirect()}>Login</button>
+                !isAuthenticated ? <button className="font-semibold h-full mx-2 px-3 bg-blue-400 hover:font-bold hover:text-white rounded-md " onClick={() => loginWithRedirect()}>Login</button>
                 :
-                <div className="inline-block">
-                    <h4> Welcome {user.name}</h4>
-                    <button onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>
+                <div className="flex h-10 items-center">
+                    <h4 className="mx-2"> Welcome {user.name}</h4>
+                    <button className="font-semibold h-full mx-2 px-3 bg-red-400 hover:font-bold hover:text-white rounded-md" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Logout</button>
                 </div>
             }
         </div>
