@@ -8,7 +8,7 @@ const MenuCard = (props) =>{
     const {name} = props.item;
     const dispatch = useDispatch();
     
-    const cartItem= [props.item.name,props.item.price]
+    const cartItem= {name:props.item.name,price:props.item.price}
     const handleAddItem = () => {
         dispatch(addItem(cartItem));   
     }
