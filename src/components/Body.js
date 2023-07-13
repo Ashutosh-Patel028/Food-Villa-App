@@ -26,9 +26,9 @@ const Body = () =>{
         .then((data)=>data.json())
         .then((jsonData)=>{
             // console.log(jsonData);
-            // console.log(jsonData?.data?.cards[0]?.data?.data?.cards);
-            setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
-            setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+            // console.log(jsonData?.data?.cards[1]?.data?.data?.cards);
+            setAllRestaurants(jsonData?.data?.cards[1]?.data?.data?.cards);
+            setFilteredRestaurants(jsonData?.data?.cards[1]?.data?.data?.cards);
             // console.log(filteredRestaurants)
         })
         .catch((err)=>{
