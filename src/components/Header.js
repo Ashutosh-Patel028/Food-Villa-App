@@ -16,9 +16,9 @@ const Header = function() {
                     <li className='px-3 h-9 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'>
                         <Link to="/cart">
                             <i className="fa-solid fa-cart-shopping">
-                                <sup className='m-1/2 bg-orange-400 rounded-lg  p-1'>{cartItems.length>0?cartItems.reduce((prev,item)=>{
-                                    return prev+item.qty
-                                }):0}</sup>
+                                <sup className='m-1/2 bg-orange-400 rounded-lg  p-1'>{cartItems.length>0?cartItems.reduce((total,item)=>{
+                                    return total+item.qty
+                                },0):0}</sup>
                             </i>
                         </Link>
                     </li>

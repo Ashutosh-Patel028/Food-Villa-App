@@ -12,11 +12,9 @@ const RestaurantMenu = () =>{
     const [ratingClass,setRatingClass] = useState('rounded-md m-1 p-1 text-white font-bold inline text-sm h-8 w-10 font-sans');
     const avgRating = (restaurantData?.avgRating)==undefined?"--":restaurantData?.avgRating;
     const [menu,setMenu] = useState([]);
+    const ListAPI=`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.9158979&lng=70.3628516&restaurantId=${params.id}&submitAction=ENTER`
     var color = "bg-red-600";
-    useEffect(()=>{
-        getMenu();
-        
-    },[]);
+      
     useEffect(()=>{
         if(avgRating>=4){
             color="bg-green-600";
@@ -31,8 +29,10 @@ const RestaurantMenu = () =>{
         }
         setRatingClass(color+" "+ratingClass);
     },[restaurantData])
-    const ListAPI=`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=20.9158979&lng=70.3628516&restaurantId=${params.id}&submitAction=ENTER`
     
+    useEffect(()=>{
+        getMenu();
+    },[]);
     // fetch(ListAPI).then(res=>res.json()).then(data=>console.log(data?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards));
     async function getMenu(){
         const res = await fetch(ListAPI);
