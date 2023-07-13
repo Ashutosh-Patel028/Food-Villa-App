@@ -23,7 +23,7 @@ const MenuCard = (props) =>{
                 </div>
                 {props.item?.imageId!=undefined?<img className="w-40 h-40 rounded-md ml-32" src={IMG_CDN_URL+props.item?.imageId}></img>:<></>}
                 <div>
-                    <button className="bg-orange-400 rounded-lg p-2 font-medium" onClick={()=>handleAddItem()}>Add Item</button>
+                    <button className="bg-orange-400 rounded-lg p-2 font-medium hover:text-white" onClick={()=>handleAddItem()}>Add <sup>+</sup></button>
                 </div>
             </div>
             <hr/>

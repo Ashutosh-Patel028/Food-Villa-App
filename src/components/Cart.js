@@ -21,7 +21,7 @@ const Cart = () =>{
     }
 
     return (
-        <div className="flex border-2 border-b-teal-500 justify-center my-2 py-2">
+        <div className="flex border-2 border-teal-500 justify-center my-2 py-2">
             <button className="my-3 mx-8 bg-red-400 rounded-md p-2 font-bold h-1/2" onClick={()=>handleClearCart()}>Clear Cart</button>
             <div className="p-1">
                 {cartItems.map((item,index)=>{

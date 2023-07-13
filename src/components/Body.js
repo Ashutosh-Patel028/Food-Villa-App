@@ -27,8 +27,8 @@ const Body = () =>{
         .then((jsonData)=>{
             // console.log(jsonData);
             // console.log(jsonData?.data?.cards[0]?.data?.data?.cards);
-            setAllRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
-            setFilteredRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
+            setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+            setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
             // console.log(filteredRestaurants)
         })
         .catch((err)=>{
@@ -50,10 +50,10 @@ const Body = () =>{
     return allRestaurants?.length===0 ? <ShimmerUI/> : (
         <div>
             <div className="m-2 p-2 text-center">
-                <input type="text" className="border-r-0 w-80 h-30 focus:caret-pink-500  text-md rounded-md rounded-e-none border border-solid border-gray-600 p-1" placeholder="Type to search a restaurant" value={searchText}
+                <input type="text" className="border-r-0 w-80 h-30 focus:caret-pink-500  text-md rounded-md rounded-e-none border border-solid border-gray-600 p-1" placeholder="Search a restaurant..." value={searchText}
                     onChange={(e)=>{setSearchText(e.target.value)}}
                 />
-                <button className="border-l-0 border border-gray-600 h-30 bg-orange-300 hover:text-white hover:bg-orange-4  00 rounded-l-none rounded-md p-1 w-20 font-bold text-neutral-600" onClick={()=>{
+                <button className="border-l-0 border border-gray-600 h-30 bg-orange-400 hover:text-white hover:bg-orange-4  00 rounded-l-none rounded-md p-1 w-20 font-bold text-gray-700" onClick={()=>{
                     const data=filterData(searchText,allRestaurants);
                     setFilteredRestaurants(data);
                 }}>Search</button>
