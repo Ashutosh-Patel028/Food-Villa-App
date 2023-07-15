@@ -6,7 +6,7 @@ import  {useSelector}  from 'react-redux';
 const Header = function() {
     const cartItems= useSelector(store => store.cart.items);
     return (
-        <div className="header flex justify-between bg-white shadow-xl sticky top-0 h-24">
+        <div className="header flex justify-between bg-white shadow-xl sticky top-0 h-24 z-10">
             <Title/>
             <div className="font-semibold">
                 <ul className='flex py-10 '>
