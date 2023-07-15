@@ -17,19 +17,26 @@ const Body = () =>{
     const [searchText,setSearchText] = useState('');
     const [filteredRestaurants,setFilteredRestaurants] = useState([]);
     const [allRestaurants,setAllRestaurants] = useState([]);
+    URL_VRL= "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.9158979&lng=70.3628516&page_type=DESKTOP_WEB_LISTING";
+    const URL_AMD = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.022505&lng=72.5713621&page_type=DESKTOP_WEB_LISTING";
     useEffect(()=>{
         getRestraunt();
     },[]);
 
     async function getRestraunt(){
-        fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.9158979&lng=70.3628516&page_type=DESKTOP_WEB_LISTING')
+        fetch(URL_VRL)
         .then((data)=>data.json())
         .then((jsonData)=>{
             // console.log(jsonData);
-            // console.log(jsonData?.data?.cards[1]?.data?.data?.cards);
-            setAllRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
-            setFilteredRestaurants(jsonData?.data?.cards[0]?.data?.data?.cards);
-            // console.log(filteredRestaurants)
+            console.log(jsonData?.data?.cards[2]?.data?.data?.cards);
+            if(jsonData?.data?.cards[2]?.data?.data?.cards.length>0 && jsonData?.data?.cards[2]?.data?.data?.cards[0].type==="restaurant"){
+                setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+                setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
+            }
+            else{
+                setAllRestaurants(restaurantList);
+                setFilteredRestaurants(restaurantList);
+            }
         })
         .catch((err)=>{
             console.log("Error while Fetching from API: "+err);
