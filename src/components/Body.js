@@ -28,7 +28,7 @@ const Body = () =>{
         .then((data)=>data.json())
         .then((jsonData)=>{
             // console.log(jsonData);
-            console.log(jsonData?.data?.cards[2]?.data?.data?.cards);
+            // console.log(jsonData?.data?.cards[2]?.data?.data?.cards);
             if(jsonData?.data?.cards[2]?.data?.data?.cards.length>0 && jsonData?.data?.cards[2]?.data?.data?.cards[0].type==="restaurant"){
                 setAllRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
                 setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
