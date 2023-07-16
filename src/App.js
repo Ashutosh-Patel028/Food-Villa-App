@@ -14,7 +14,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
-import Favourites from "./components/favourites";
+import Favourites from "./components/Favourites";
 
 const AppLayout = () =>{
     return (
