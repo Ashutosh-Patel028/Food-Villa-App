@@ -14,6 +14,7 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
+import Favourites from "./components/favourites";
 
 const AppLayout = () =>{
     return (
@@ -62,6 +63,10 @@ const appRouter = createBrowserRouter([
             {
                 path: '/cart',
                 element: <Cart/>
+            },
+            {
+                path: '/favourites',
+                element: <Favourites/>
             },
             {
                 path: '/restaurant/:id',

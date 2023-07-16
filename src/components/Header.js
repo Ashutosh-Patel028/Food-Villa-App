@@ -12,7 +12,8 @@ const Header = function() {
                 <ul className='flex py-10 '>
                     <li className='px-3 h-9 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/">Home</Link></li>
                     <li className='px-3 h-9 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/about">About</Link></li>
-                    <li className='px-3 h-9 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/contact">Contact</Link></li>                    
+                    <li className='px-3 h-9 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/contact">Contact</Link></li>
+                    <li className='px-3 h-9 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'><Link to="/favourites">Favourites</Link></li>
                     <li className='px-3 h-9 hover:bg-orange-400 hover:font-bold hover:text-white py-1 rounded-lg'>
                         <Link to="/cart">
                             <i className="fa-solid fa-cart-shopping">
