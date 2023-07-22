@@ -28,9 +28,11 @@ const Cart = () =>{
                     return (
                         <div className="flex my-2" id={index}>
                             <h1 className="p-1 font-mono">{item.name}&nbsp; &#8377;{item.price/100}&nbsp;</h1>
-                            <button className="bg-red-500 w-7 h-8 font-semibold text-lg rounded-md disabled:bg-red-300" disabled={item.qty===1} onClick={()=>handleDecrement(item.name)}>-</button>
-                            <span>Qty:{item.qty}</span>
-                            <button className="bg-blue-400 w-7 h-8 font-semibold text-lg rounded-md" onClick={()=>handleIncrement(item.name)}>+</button>
+                            <div className="font-md text-lg">
+                                <button className="bg-red-500 w-7 h-8 font-semibold text-lg rounded-md disabled:bg-red-300" disabled={item.qty===1} onClick={()=>handleDecrement(item.name)}>-</button>
+                                <span>Qty:{item.qty}</span>
+                                <button className="bg-blue-400 w-7 h-8 font-semibold text-lg rounded-md" onClick={()=>handleIncrement(item.name)}>+</button>
+                            </div>
                             <button className="mx-3 p-1 bg-amber-600 rounded-lg" onClick={()=>handleRemoveItem(item.name)}>Remove</button>
                         </div>
                     )
