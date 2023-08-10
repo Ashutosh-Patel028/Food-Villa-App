@@ -3,6 +3,12 @@ import { useSelector } from 'react-redux';
 
 const Favourites = () =>{
     const favourites = useSelector((store)=>store.favourites.items);
+    if(favourites.length==0 || favourites===null)
+        return (
+            <div className='bg-red-300 item-center'>
+                There is nothing here! pls. add something here
+            </div>
+        )
     return (
         <div className='flex flex-col mx-auto my-4 items-center align-middle justify-center border-2 w-1/2'>
             {
